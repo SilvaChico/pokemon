@@ -8,11 +8,15 @@
         "ts-node": "^9.0.0"
     },
     "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^8.2.0",
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.0.3",
         "tslint": "^5.12.1",
         "typescript": "^3.3.3"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "mocha --inspect -r ts-node/register --recursive ./src/tests/**/*.ts",
         "start": "ts-node app.ts"
     },
     "author": "",
