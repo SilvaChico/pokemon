@@ -15,7 +15,13 @@ For instance:
 
 To run the application, run the following commands on the command line inside the project directory:
 
-```
+```bash
 npm install
 npm start $inputString
+```
+
+To run tests:
+
+```bash
+npm run test
 ```
