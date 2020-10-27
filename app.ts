@@ -1,9 +1,14 @@
-function main(argv: Array<string>) {
-    const input: Array<string> = argv.slice(2);
+import { Ash } from "./src/models/ash";
 
-    console.log(input);
+function main(inputs: string) {
 
+    const ash: Ash = new Ash();
 
+    inputs.split('').forEach((direction) => {
+        ash.move(direction);
+    });
+
+    console.log(ash.ownedPokemons);
 }
 
-main(process.argv);
+main(process.argv.slice(2)[0]);
