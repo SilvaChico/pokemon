@@ -4,12 +4,12 @@ import { World } from "./world";
 export class Ash {
     private currentPosition_: Position = new Position(0, 0);
     private ownedPokemons_: number = 0;
+    private world: World;
 
-    constructor(world: World) {
-        if (world.containsPokemon(this.currentPosition_)) {
-            this.catchPokemon();
-            world.removePokemon(this.currentPosition_)
-        }
+    constructor() {
+        this.world = new World();
+        this.catchPokemon();
+        this.world.removePokemon(this.currentPosition_)
     }
 
     public get ownedPokemons(): number {
@@ -22,7 +22,7 @@ export class Ash {
     }
 
 
-    public move(direction: string, world: World) {
+    public move(direction: string) {
         if (direction === 'N')
             this.currentPosition_.incrementY();
         else if (direction === 'S')
@@ -32,9 +32,9 @@ export class Ash {
         else if (direction === 'E')
             this.currentPosition_.decrementX();
 
-        if (world.containsPokemon(this.currentPosition_)) {
+        if (this.world.containsPokemon(this.currentPosition_)) {
             this.catchPokemon();
-            world.removePokemon(this.currentPosition_)
+            this.world.removePokemon(this.currentPosition_)
         }
     }
 

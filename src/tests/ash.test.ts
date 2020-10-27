@@ -1,19 +1,13 @@
 import chai from 'chai';
 import { Ash } from '../models/ash';
-import { World } from '../models/world';
 
 const expect: Chai.ExpectStatic = chai.expect;
 
 
 describe('Ash functionalities', () => {
-    let world: World;
-
-    beforeEach(() => {
-        world = new World();
-    })
 
     it('creates Ash', () => {
-        const ash: Ash = new Ash(world);
+        const ash: Ash = new Ash();
         expect(
             ash.ownedPokemons,
         ).to.eql(1);
@@ -28,8 +22,8 @@ describe('Ash functionalities', () => {
     })
 
     it('moves Ash north', () => {
-        const ash: Ash = new Ash(world);
-        ash.move('N', world);
+        const ash: Ash = new Ash();
+        ash.move('N');
         expect(
             ash.ownedPokemons,
         ).to.eql(2);
@@ -44,9 +38,9 @@ describe('Ash functionalities', () => {
     })
 
     it('moves Ash north and then south', () => {
-        const ash: Ash = new Ash(world);
-        ash.move('N', world);
-        ash.move('S', world);
+        const ash: Ash = new Ash();
+        ash.move('N');
+        ash.move('S');
         expect(
             ash.ownedPokemons,
         ).to.eql(2);
@@ -62,9 +56,9 @@ describe('Ash functionalities', () => {
 
     it('moves Ash with the following sequence: NESSON', () => {
         /* note that O means West */
-        const ash: Ash = new Ash(world);
+        const ash: Ash = new Ash();
         ['N', 'E', 'S', 'S', 'O', 'N'].forEach(direction => {
-            ash.move(direction, world);
+            ash.move(direction);
         })
         expect(
             ash.ownedPokemons,
@@ -81,9 +75,9 @@ describe('Ash functionalities', () => {
 
     it('moves Ash with the following sequence: 10000 times north the 10000 times south', () => {
         /* note that O means West */
-        const ash: Ash = new Ash(world);
+        const ash: Ash = new Ash();
         new Array(10000).fill('N').concat(new Array(10000).fill('S')).forEach(direction => {
-            ash.move(direction, world);
+            ash.move(direction);
         })
         expect(
             ash.ownedPokemons,
@@ -99,8 +93,8 @@ describe('Ash functionalities', () => {
     })
 
     it('moves ash into an unknown direction', () => {
-        const ash: Ash = new Ash(world);
-        ash.move('SW', world);
+        const ash: Ash = new Ash();
+        ash.move('P');
         expect(
             ash.ownedPokemons,
         ).to.eql(1);
