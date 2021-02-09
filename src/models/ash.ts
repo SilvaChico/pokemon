@@ -27,7 +27,7 @@ export class Ash {
             this.currentPosition_.incrementY();
         else if (direction === 'S')
             this.currentPosition_.decrementY();
-        else if (direction === 'O')
+        else if (direction === 'W')
             this.currentPosition_.incrementX();
         else if (direction === 'E')
             this.currentPosition_.decrementX();

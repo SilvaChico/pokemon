@@ -54,10 +54,10 @@ describe('Ash functionalities', () => {
         ).to.eql(0);
     })
 
-    it('moves Ash with the following sequence: NESSON', () => {
+    it('moves Ash with the following sequence: NESSWN', () => {
         /* note that O means West */
         const ash: Ash = new Ash();
-        ['N', 'E', 'S', 'S', 'O', 'N'].forEach(direction => {
+        ['N', 'E', 'S', 'S', 'W', 'N'].forEach(direction => {
             ash.move(direction);
         })
         expect(

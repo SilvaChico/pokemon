@@ -8,7 +8,7 @@ For instance:
 | Input | Output  
 | :------------------: | :----------------:
 | E| 2
-| NESO | 4
+| NESW | 4
 | NSNSNSNSNS | 2
 
 ## Run application
